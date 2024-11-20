@@ -679,7 +679,7 @@
 	if (range.location != NSNotFound) {
 		tmpAddress = [tmpAddress substringToIndex:range.location];
 	}
-	addressLabel.text = tmpAddress;
+	addressLabel.text = label.text;
 }
 
 

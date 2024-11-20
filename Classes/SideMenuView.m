@@ -85,6 +85,7 @@
 		}
 		_presenceImage.image = nil;
 	}
+    _addressLabel.text = _nameLabel.text;
 	_avatarImage.image = [LinphoneUtils selfAvatar];
 }
 
@@ -95,7 +96,7 @@
 #pragma deploymate pop
 
 - (IBAction)onHeaderClick:(id)sender {
-	[PhoneMainView.instance changeCurrentView:SettingsView.compositeViewDescription];
+	//[PhoneMainView.instance changeCurrentView:SettingsView.compositeViewDescription];
 	[PhoneMainView.instance.mainViewController hideSideMenu:YES];
 }
 
@@ -104,7 +105,8 @@
 	if (!IPAD) {
 		[PhoneMainView.instance.mainViewController hideSideMenu:YES];
 	}
-	[ImagePickerView SelectImageFromDevice:self atPosition:_avatarImage inView:self.view withDocumentMenuDelegate:nil];
+    [PhoneMainView.instance.mainViewController hideSideMenu:YES];
+	//[ImagePickerView SelectImageFromDevice:self atPosition:_avatarImage inView:self.view withDocumentMenuDelegate:nil];
 }
 
 - (IBAction)onBackgroundClicked:(id)sender {

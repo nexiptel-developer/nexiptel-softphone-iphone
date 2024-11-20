@@ -55,7 +55,7 @@ class VoipSpeakerCell: UITableViewCell {
 				limeBadge.isHidden = true
 				avatar.fillFromAddress(address: data.speaker.address!)
 				displayName.text = data.speaker.address?.addressBookEnhancedDisplayName()
-				sipAddress.text = data.speaker.address?.asStringUriOnly()
+                sipAddress.text = data.speaker.address?.username
 				data.isAdmin.readCurrentAndObserve { _ in
 					self.setAdminStatus(data: data)
 				}
@@ -88,7 +88,7 @@ class VoipSpeakerCell: UITableViewCell {
 			if let address = scheduleConfSpeakerAddress {
 				avatar.fillFromAddress(address: address)
 				displayName.text = address.addressBookEnhancedDisplayName()
-				sipAddress.text = address.asStringUriOnly()
+                sipAddress.text = address.username
 				self.isAdminView.isHidden = true
 				self.removePart.isHidden = true
 			}

@@ -85,7 +85,7 @@ NSString *const kLinphoneMagicSearchMoreAvailable = @"LinphoneMagicSearchMoreAva
 NSString *const kDisplayModeChanged = @"DisplayModeChanged";
 NSString *const kLinphoneAccountCreationAuthenticationTokenReceived = @"LinphoneAccountCreationAuthenticationTokenReceived";
 
-NSString *const kLinphoneMsgNotificationAppGroupId = @"group.org.linphone.phone.msgNotification";
+NSString *const kLinphoneMsgNotificationAppGroupId = @"group.com.nexiptel.softphone.msgNotification";
 
 const int kLinphoneAudioVbrCodecDefaultBitrate = 36; /*you can override this from linphonerc or linphonerc-factory*/
 
@@ -1149,11 +1149,12 @@ static void linphone_iphone_is_composing_received(LinphoneCore *lc, LinphoneChat
 
 	// get default config from bundle
 	NSString *zrtpSecretsFileName = [LinphoneManager dataFile:@"zrtp_secrets"];
+    const char *deviceName = linphone_config_get_string(linphone_core_get_config(LC), "app", "device_name", "");
 	NSString *chatDBFileName = [LinphoneManager dataFile:kLinphoneInternalChatDBFilename];
-	NSString *device = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%@iOS/%@ (%@) LinphoneSDK",
+	NSString *device = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%@iOS/%@ (%@) (%s) LinphoneSDK",
 								    [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"],
 								    [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],
-								    [[UIDevice currentDevice] name]]];
+								    [[UIDevice currentDevice] name], deviceName]];
 
 	linphone_core_set_user_agent(theLinphoneCore, device.UTF8String, LINPHONE_SDK_VERSION);
 

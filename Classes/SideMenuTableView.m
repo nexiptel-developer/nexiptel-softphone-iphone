@@ -70,24 +70,24 @@
 	MSList *accounts = [LinphoneManager.instance createAccountsNotHiddenList];
 	BOOL hasAccount = accounts != NULL;
 	bctbx_free(accounts);
-	if (mustLink && hasAccount && ![LinphoneManager.instance lpConfigIntForKey:@"hide_link_phone_number"]) {
-		[_sideMenuEntries
-			addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Link my account", nil)
-                                                     image:[UIImage imageNamed:@"menu_link_account.png"]
-												  tapBlock:^() {
-													[PhoneMainView.instance
-														changeCurrentView:AssistantLinkView.compositeViewDescription];
-												  }]];
-	}
+//	if (mustLink && hasAccount && ![LinphoneManager.instance lpConfigIntForKey:@"hide_link_phone_number"]) {
+//		[_sideMenuEntries
+//			addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Link my account", nil)
+//                                                     image:[UIImage imageNamed:@"menu_link_account.png"]
+//												  tapBlock:^() {
+//													[PhoneMainView.instance
+//														changeCurrentView:AssistantLinkView.compositeViewDescription];
+//												  }]];
+//	}
 
     
-	[_sideMenuEntries
-		addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Settings", nil)
-                                                 image:[UIImage imageNamed:@"menu_options.png"]
-											  tapBlock:^() {
-												[PhoneMainView.instance
-													changeCurrentView:SettingsView.compositeViewDescription];
-											  }]];
+//	[_sideMenuEntries
+//		addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Settings", nil)
+//                                                 image:[UIImage imageNamed:@"menu_options.png"]
+//											  tapBlock:^() {
+//												[PhoneMainView.instance
+//													changeCurrentView:SettingsView.compositeViewDescription];
+//											  }]];
     [_sideMenuEntries
      addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Recordings", nil)
                                               image:[UIImage imageNamed:@"menu_recordings.png"]

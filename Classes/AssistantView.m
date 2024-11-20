@@ -599,6 +599,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 			_welcomeLogoImage.hidden = !show_logo;
 			_gotoLoginButton.hidden = !show_extern;
 			_gotoCreateAccountButton.hidden = !show_new;
+            _gotoLinphoneLoginButton.hidden = !show_new;
+            _gotoLinphoneSpecificFeatureWarningButton.hidden = !show_new;
 			_gotoRemoteProvisioningButton.hidden = !show_fetch_remote;
 
 			// placement
@@ -1730,7 +1732,7 @@ UIColor *previousColor = (UIColor*)[sender backgroundColor]; \
 
 - (IBAction)onRemoteProvisioningDownloadClick:(id)sender {
 	ONNEWCLICKBUTTON(sender, 100, {
-		if (number_of_accounts_before > 0) {
+		if (number_of_accounts_before > 1) {
 			// TODO remove ME when it is fixed in SDK.
 			linphone_core_set_provisioning_uri(LC, NULL);
 			UIAlertController *errView = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Provisioning Load error", nil)

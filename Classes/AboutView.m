@@ -53,7 +53,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 	NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *curVersion = [NSString stringWithFormat:@"version %@",[infoDict objectForKey:@"CFBundleShortVersionString"]];
 	_appVersionLabel.text = [NSString stringWithFormat:@"%@ iOS %@", name, curVersion];
-	_libVersionLabel.text = [NSString stringWithFormat:@"%@ SDK %s", name, LINPHONE_SDK_VERSION];
+	_libVersionLabel.text = [NSString stringWithFormat:@"%@ SDK %s", @"Linphone", LINPHONE_SDK_VERSION];
 	_translateLabel.text = [NSString stringWithString:NSLocalizedString(@"Help us translate Linphone", nil)];
 	
 	UITapGestureRecognizer *tapGestureRecognizer =
